@@ -49,9 +49,11 @@ First add some tools to validate the install.\
 The DAC uses 5v, which can be sourced from the RPI connector.
 SCK needs to be connected to ground, else there will be some noise on the output.
 
+![zero-pinout](./images/zero-pinout.png) 
+
 ```DAC BOARD   > Raspberry Pi 3 Model B connector J8
 -----------------------------------------------
-SCK         > PIN x     (GND)
+SCK         > PIN 14    (GND)
 BCK         > PIN 12    (GPIO18)
 DIN         > PIN 40    (GPIO21)
 LRCK        > PIN 35    (GPIO19)
