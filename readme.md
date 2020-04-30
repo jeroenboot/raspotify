@@ -1,15 +1,15 @@
 # Headless read-only raspberry-pi zero Spotify Connect install
-The goal is to create a simple and robust raspberry installation for high-quality Spotify streaming.
-A Raspberry PI zero is ideal as it runs Linux and can be equipped with a cheap, but relative high-quality DAC.
+The goal is to create a simple and robust raspberry installation for high-quality Spotify streaming. The onboard dac of a regulard Raspberry PI isn't that great. The Zero only has audio out via HDMI.
+
+A Raspberry PI zero is ideal as it runs Linux and can be equipped with a cheap, but relative high-quality DAC. The small formfactor, low power usage and cost make it an ideal device for a dedicated audio receiver.
+
 The ultimate goal will be to add this small device to a "dumb" speaker (e.g. a Tivoli One). But first things first, getting the Pi up-and-running...
 
-
-We need a read-only file-system as this will reduce the risk of a faulty filesystem due to incorrect shutdowns.
-
+We need a read-only file-system as this will reduce the risk of a faulty filesystem due to incorrect shutdowns. This requires additional configuration, which is documented in the readme
 
 For this project I used this external DAC, together with a Zero wireless and Debian Buster as distribution.
-https://nl.aliexpress.com/item/33061919226.html\
-or\
+https://nl.aliexpress.com/item/33061919226.html   
+Or a picture\
 ![rpi-dac](./images/rpi-dac.jpg)
 
 And here is the prototype built;
