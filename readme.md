@@ -103,10 +103,11 @@ ctl.!default {
 
 
 ## Validate the install
-Reboot / reload the PI and check if all is working correctly
-See if the DAC is enabled;
+Reboot / reload the PI and check if all is working correctly\
+See if the DAC is enabled `$ aplay -l`;
 
-```pi@zero1:~ $ aplay -l
+```
+pi@zero1:~ $ aplay -l
 **** List of PLAYBACK Hardware Devices ****
 card 0: sndrpihifiberry [snd_rpi_hifiberry_dac], device 0: HifiBerry DAC HiFi pcm5102a-hifi-0 [HifiBerry DAC HiFi pcm5102a-hifi-0]
   Subdevices: 1/1
