@@ -13,23 +13,23 @@ For this project I used this external DAC, together with a Zero wireless and Deb
 
 
 
-##Setup Spotify streaming (connect)
-Prepare the distribution
+## Setup Spotify streaming (connect)
+Prepare the distribution\
 `sudo apt update && sudo apt upgrade`
 `sudo apt install -y apt-transport-https curl`
 
-Add the repostitory
+Add the repostitory\
 `curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -`
 `echo 'deb https://dtcooper.github.io/raspotify raspotify main' | sudo tee /etc/apt/sources.list.d/raspotify.list`
 
-Install raspotify
+Install raspotify\
 `sudo apt update`
 `sudo apt install raspotify`
 
-Adjust config (bitrate 96,160,320)
+Adjust config (bitrate 96,160,320)\
 `sudo nano /etc/default/raspotify`
 
-Enable the service
+Enable the service\
 `sudo systemctl enable raspotify`
 `sudo systemctl start raspotify`
 `sudo systemctl restart raspotify`
@@ -37,7 +37,7 @@ Enable the service
 
 
 ##Enable the DAC, and disable the HDMI-soundcard
-First add some tools to validate the install.
+First add some tools to validate the install.\
 `sudo apt-get install alsa-utils`
 
 
@@ -111,10 +111,10 @@ Succes!
 
 
 
-##Preparations for read-only filesystem
+## Preparations for read-only filesystem
 First things first, prepare the installation. for a read-only operation by removing most of the unwanted software.
 
-#####Enable Filesystem (TMPFS)
+##### Enable Filesystem (TMPFS)
 Write to RAM instead of the SDCARD
 
 `$ sudo vi /etc/fstab`
@@ -129,7 +129,7 @@ tmpfs    /var/spool/mqueue  tmpfs   defaults,noatime,nosuid,mode=0700,gid=1001,s
 tmpfs    /var/lock          tmpfs   defaults,noatime,nosuid,size=30m                    0 0
 ```
 
-#####Fix DHCP and resolve.conf
+##### Fix DHCP and resolve.conf
 Needed because this is dynamical created.
 
 ```$ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /etc/resolv.conf
@@ -140,21 +140,21 @@ $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 ```
 
 
-#####Log in to your Raspberry via SSH. I recommend you first update your Pi one more time to get all the latest software packages:
+##### Log in to your Raspberry via SSH. I recommend you first update your Pi one more time to get all the latest software packages:
 `$ sudo apt-get update && apt-get upgrade`
-#####Afterwards do a little housekeeping and remove the following packages. If these were not installed in the first place then just skip this step:
-`$ sudo apt-get remove --purge wolfram-engine triggerhappy anacron logrotate dphys-swapfile xserver-common lightdm`
-#####Stop the X11 server (if running):
+##### Afterwards do a little housekeeping and remove the following packages. If these were not installed in the first place then just skip this step:
+`$ sudo apt-getremove --purge wolfram-engine triggerhappy anacron logrotate dphys-swapfile xserver-common lightdm`
+##### Stop the X11 server (if running):
 `$ sudo systemctl disable x11-common`
-#####Clean up your packages:
+##### Clean up your packages:
 `$ sudo apt-get autoremove --purge`
-#####Remove some startup scripts
+##### Remove some startup scripts
 `$ sudo systemctl disable bootlogs`
 `$ sudo systemctl disable console-setup`
 
 
 
-#####Replace your log manager to one which logs to memory
+##### Replace your log manager to one which logs to memory
 `$ sudo apt-get install busybox-syslogd`
 `$ sudo dpkg --purge rsyslog`
 
@@ -163,16 +163,16 @@ $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 ## Disable swap and filesystem check and set it to read-only
 Edit the file `$ sudo vi /boot/cmdline.txt` and add the following three words at the end of the line: `fastboot noswap ro`
 
-_Example:_
+_Example:_\
 `dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait fastboot noswap ro`
 
 
-#####Update the systemd random seed
-Link the random-seed file to the tmpfs location:
+##### Update the systemd random seed
+Link the random-seed file to the tmpfs location:\
 `$ sudo rm /var/lib/systemd/random-seed`
 `$ sudo ln -s /tmp/random-seed /var/lib/systemd/random-seed`
 
-And update the daemon configuration file
+And update the daemon configuration file\
 `$ sudo vi /lib/systemd/system/systemd-random-seed.service`
 
 ```
@@ -187,7 +187,7 @@ TimeoutSec=30s
 
 
 #### reboot system to check if all still works
-After this successful test the filesystem can be made read-only
+After this successful test the filesystem can be made read-only\
 Update the file /etc/fstab and add the ,ro flag to all block devices
 
 _Example_:
@@ -201,6 +201,5 @@ proc            /proc           proc    defaults             0       0
 
 
 ### remounting
-If you need to make adjustments, the filesystem can be remounted read-write
-
+If you need to make adjustments, the filesystem can be remounted read-write\
 `sudo mount -o remount,rw /`
