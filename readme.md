@@ -3,7 +3,8 @@ The goal is to create a simple and robust raspberry installation for high-qualit
 A Raspberry PI zero is ideal as it runs Linux and can be equipped with a cheap, but relative high-quality DAC.
 The ultimate goal will be to add this small device to a "dumb" speaker (e.g. a Tivoli One). But first things first, getting the Pi up-and-running...
 
-Another consideration is the use of a read-only file-system This will reduce the risk of a faulty filesystem due to incorrect shutdowns.
+
+We need a read-only file-system as this will reduce the risk of a faulty filesystem due to incorrect shutdowns.
 
 
 For this project I used this external DAC, together with a Zero wireless and Debian Buster as distribution.
