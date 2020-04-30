@@ -1,4 +1,4 @@
-# Headless read-only raspberry-pi zero
+# Headless read-only raspberry-pi zero Spotify Connect install
 The goal is to create a simple and robust raspberry installation for high-quality Spotify streaming.
 A Raspberry PI zero is ideal as it runs Linux and can be equipped with a cheap, but relative high-quality DAC.
 The ultimate goal will be to add this small device to a "dumb" speaker (e.g. a Tivoli One). But first things first, getting the Pi up-and-running...
@@ -141,7 +141,8 @@ tmpfs    /var/lock          tmpfs   defaults,noatime,nosuid,size=30m            
 ##### Fix DHCP and resolve.conf
 Needed because this is dynamical created.
 
-```$ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /etc/resolv.conf
+```
+$ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /etc/resolv.conf
 $ sudo ln -s /tmp /var/lib/dhcp
 $ sudo ln -s /tmp /var/lib/dhcpcd5
 $ sudo touch /tmp/dhcpcd.resolv.conf
