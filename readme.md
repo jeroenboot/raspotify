@@ -22,28 +22,28 @@ And here is the prototype built;
 
 ## Setup Spotify streaming (connect), assuming a fresh install of Raspian
 Prepare the distribution\
-`sudo apt update && sudo apt upgrade`
+`sudo apt update && sudo apt upgrade`\
 `sudo apt install -y apt-transport-https curl`
 
 Add the repository\
-`curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -`
+`curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -`\
 `echo 'deb https://dtcooper.github.io/raspotify raspotify main' | sudo tee /etc/apt/sources.list.d/raspotify.list`
 
 Install raspotify\
-`sudo apt update`
+`sudo apt update`\
 `sudo apt install raspotify`
 
 Adjust config (bitrate 96 low, 160 normal, 320 high)\
 `sudo nano /etc/default/raspotify`
 
 Enable the service\
-`sudo systemctl enable raspotify`
-`sudo systemctl start raspotify`
+`sudo systemctl enable raspotify`\
+`sudo systemctl start raspotify`\
 `sudo systemctl restart raspotify`
 
 
 
-##Enable the DAC, and disable the HDMI-soundcard
+## Enable the DAC, and disable the HDMI-soundcard
 First add some tools to validate the install.\
 `sudo apt-get install alsa-utils`
 
@@ -52,7 +52,8 @@ SCK needs to be connected to ground, else there will be some noise on the output
 
 ![zero-pinout](./images/zero-pinout.png) 
 
-```DAC BOARD   > Raspberry Pi 3 Model B connector J8
+```
+DAC BOARD   > Raspberry Pi connector J8
 -----------------------------------------------
 SCK         > PIN 14    (GND)
 BCK         > PIN 12    (GPIO18)
@@ -159,13 +160,13 @@ $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 ##### Clean up your packages:
 `$ sudo apt-get autoremove --purge`
 ##### Remove some startup scripts
-`$ sudo systemctl disable bootlogs`
+`$ sudo systemctl disable bootlogs`\
 `$ sudo systemctl disable console-setup`
 
 
 
 ##### Replace your log manager to one which logs to memory
-`$ sudo apt-get install busybox-syslogd`
+`$ sudo apt-get install busybox-syslogd`\
 `$ sudo dpkg --purge rsyslog`
 
 
@@ -179,7 +180,7 @@ _Example:_\
 
 ##### Update the systemd random seed
 Link the random-seed file to the tmpfs location:\
-`$ sudo rm /var/lib/systemd/random-seed`
+`$ sudo rm /var/lib/systemd/random-seed`\
 `$ sudo ln -s /tmp/random-seed /var/lib/systemd/random-seed`
 
 And update the daemon configuration file\
