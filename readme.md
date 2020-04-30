@@ -20,7 +20,7 @@ And here is the prototype built;
 
 
 
-## Setup Spotify streaming (connect, assuming a fresh install
+## Setup Spotify streaming (connect), assuming a fresh install of Raspian
 Prepare the distribution\
 `sudo apt update && sudo apt upgrade`
 `sudo apt install -y apt-transport-https curl`
