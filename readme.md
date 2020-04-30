@@ -1,4 +1,4 @@
-#Headless read-only raspberry-pi zero
+# Headless read-only raspberry-pi zero
 The goal is to create a simple and robust raspberry installation for high-quality Spotify streaming.
 A Raspberry PI zero is ideal as it runs Linux and can be equipped with a cheap, but relative high-quality DAC.
 The ultimate goal will be to add this small device to a "dumb" speaker (e.g. a Tivoli One). But first things first, getting the Pi up-and-running...
