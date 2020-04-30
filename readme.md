@@ -7,13 +7,19 @@ Another consideration is the use of a read-only file-system This will reduce the
 
 
 For this project I used this external DAC, together with a Zero wireless and Debian Buster as distribution.
-[https://nl.aliexpress.com/item/33061919226.html][]
+https://nl.aliexpress.com/item/33061919226.html\
+or\
+![rpi-dac](./images/rpi-dac.jpg)
+
+And here is the prototype built;
+![prototype](./images/dac-prototype.jpg) 
 
 
 
 
 
-## Setup Spotify streaming (connect)
+
+## Setup Spotify streaming (connect, assuming a fresh install
 Prepare the distribution\
 `sudo apt update && sudo apt upgrade`
 `sudo apt install -y apt-transport-https curl`
@@ -39,7 +45,6 @@ Enable the service\
 ##Enable the DAC, and disable the HDMI-soundcard
 First add some tools to validate the install.\
 `sudo apt-get install alsa-utils`
-
 
 The DAC uses 5v, which can be sourced from the RPI connector.
 SCK needs to be connected to ground, else there will be some noise on the output.
