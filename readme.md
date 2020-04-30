@@ -18,7 +18,7 @@ Prepare the distribution\
 `sudo apt update && sudo apt upgrade`
 `sudo apt install -y apt-transport-https curl`
 
-Add the repostitory\
+Add the repository\
 `curl -sSL https://dtcooper.github.io/raspotify/key.asc | sudo apt-key add -v -`
 `echo 'deb https://dtcooper.github.io/raspotify raspotify main' | sudo tee /etc/apt/sources.list.d/raspotify.list`
 
@@ -26,7 +26,7 @@ Install raspotify\
 `sudo apt update`
 `sudo apt install raspotify`
 
-Adjust config (bitrate 96,160,320)\
+Adjust config (bitrate 96 low, 160 normal, 320 high)\
 `sudo nano /etc/default/raspotify`
 
 Enable the service\
@@ -107,7 +107,7 @@ card 0: sndrpihifiberry [snd_rpi_hifiberry_dac], device 0: HifiBerry DAC HiFi pc
   Subdevices: 1/1
   Subdevice #0: subdevice #0
 ```
-Succes!
+Success!
 
 
 
@@ -196,8 +196,6 @@ proc            /proc           proc    defaults             0       0
 /dev/mmcblk0p1  /boot           vfat    defaults,ro          0       2
 /dev/mmcblk0p2  /               ext4    defaults,noatime,ro  0       1
 ```
-
-
 
 
 ### remounting
