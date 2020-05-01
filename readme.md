@@ -134,6 +134,7 @@ tmpfs    /tmp               tmpfs   defaults,noatime,nosuid,size=30m            
 tmpfs    /var/tmp           tmpfs   defaults,noatime,nosuid,size=30m                    0 0
 tmpfs    /var/log           tmpfs   defaults,noatime,nosuid,mode=0755,size=30m          0 0
 tmpfs    /var/run           tmpfs   defaults,noatime,nosuid,size=30m                    0 0
+tmpfs    /var/cache         tmpfs   defaults,noatime,nosuid,size=30m                    0 0
 tmpfs    /var/spool         tmpfs   defaults,noatime,nosuid,size=30m                    0 0
 tmpfs    /var/spool/mqueue  tmpfs   defaults,noatime,nosuid,mode=0700,gid=1001,size=30m 0 0
 tmpfs    /var/lock          tmpfs   defaults,noatime,nosuid,size=30m                    0 0
