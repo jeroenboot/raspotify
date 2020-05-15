@@ -164,6 +164,15 @@ $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 `$ sudo systemctl disable bootlogs`\
 `$ sudo systemctl disable console-setup`
 
+##### Improve Wireless by disabling powersaving
+`sudo nano /etc/network/interfaces`  
+
+Go to the end of the file and add the lines:
+```
+# Disable wifi power management
+wireless-power off
+```
+
 
 
 ##### Replace your log manager to one which logs to memory
