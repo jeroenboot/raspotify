@@ -1,13 +1,11 @@
-#Add airplay functionality to raspberry zero
-Be aware, the soundcard is exclusive to one process. If Airplay is selected, then Raspotify doesn't have a soundcard available. This can be solved by using a middleware application like pulse-audio.
+#Add airplay functionality to raspberry zero, with RO filesystem
+Be aware, the soundcard is exclusive to one process.  
+If Airplay is selected, then Raspotify doesn't have a soundcard available.
 
 
 ####Preparation  
-Adjust /etc/fstab to add more tmpfs space for APT "/var/cache"  
+Adjust /etc/fstab to add more tmpfs space for APT "/var/cache", else the update will fail.  
 `tmpfs    /var/cache         tmpfs   defaults,noatime,nosuid,size=300m                    0 0`
-
-Add the ca-certificates back  
-`sudo apt install --reinstall ca-certificates`
 
 Fix NTP  
 
@@ -16,6 +14,9 @@ There might be an issue with the clock, not sure if related to read-only FS
 $ sudo systemctl stop ntp
 $ sudo ntpd -gq
 ```
+
+Add the ca-certificates back, these might have changed preventing apt to work correctly.  
+`sudo apt install --reinstall ca-certificates`
 
 ####PulseAudio
 Might require Pulseaudio, not sure yet  
