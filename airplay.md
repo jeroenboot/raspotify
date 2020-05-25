@@ -1,5 +1,5 @@
 #Add airplay functionality to raspberry zero
-It requires pulse-audio, because alsa needs exclusive access to an hardware audiocard
+Be aware, the soundcard is exclusive to one process. If Airplay is selected, then Raspotify doesn't have a soundcard available. This can be solved by using a middleware application like pulse-audio.
 
 
 ####Preparation  
@@ -9,12 +9,17 @@ Adjust /etc/fstab to add more tmpfs space for APT "/var/cache"
 Add the ca-certificates back  
 `sudo apt install --reinstall ca-certificates`
 
-pi@zero1:~ $ sudo systemctl stop ntp
-pi@zero1:~ $ sudo ntpd -gq    
+Fix NTP  
+
+There might be an issue with the clock, not sure if related to read-only FS
+```
+$ sudo systemctl stop ntp
+$ sudo ntpd -gq
+```
 
 ####PulseAudio
-Might require Pulseaudio, bot sure yet  
-`sudo apt-get install -y pulseaudio pulseaudio-module-zeroconf alsa-utils avahi-daemon pavucontrol paprefs`
+Might require Pulseaudio, not sure yet  
+`#sudo apt-get install -y pulseaudio pulseaudio-module-zeroconf alsa-utils avahi-daemon pavucontrol paprefs`
 
 
 ###Install
@@ -28,7 +33,7 @@ sudo apt-get install autoconf automake avahi-daemon build-essential git libasoun
 Get the code  
 `git clone https://github.com/mikebrady/shairport-sync.git`
 
-Install the software
+Install the software, alsa backend for now
 ```
 cd shairport-sync
 autoreconf -i -f
@@ -40,5 +45,5 @@ sudo make install
 
 
 ####Test and enable
-$ sudo service shairport-sync start
-$ sudo systemctl enable shairport-sync
+`$ sudo service shairport-sync start`\
+`$ sudo systemctl enable shairport-sync`
